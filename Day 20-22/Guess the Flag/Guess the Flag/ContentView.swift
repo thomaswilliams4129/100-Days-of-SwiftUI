@@ -28,17 +28,11 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 15) {
-                Text("Guess the Flag")
-                       .font(.largeTitle.weight(.bold))
-                       .foregroundStyle(.white)
+                CustomTitle(text: "Guess the Flag")
                 
                 VStack {
-                    Text("Tap the flag of")
-                        .foregroundColor(.white)
-                        .font(.subheadline.weight(.heavy))
-                    Text(countries[correctAnswer])
-                        .foregroundColor(.white)
-                        .font(.largeTitle.weight(.semibold))
+                    CustomBody(text: "Tap the flag of")
+                    CustomTitle(text:countries[correctAnswer])
 
                 }
                 
@@ -47,15 +41,11 @@ struct ContentView: View {
                         flagTapped(number)
                     
                     } label: {
-                        Image(countries[number])
-                            .clipShape(.capsule)
-                            .shadow(radius: 5)
+                        FlagImage(number)
                     }
                     
                 }
-                Text("Current Score: \(userScore)")
-                    .font(.body.weight(.bold))
-                    .foregroundStyle(.white)
+                CustomBody(text: "Current Score: \(userScore)")
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 20)
@@ -108,6 +98,24 @@ struct ContentView: View {
     func resetGame() {
         userScore = 0
         numberOfAttempts = 0
+    }
+    
+    func FlagImage(_ number: Int) -> some View {
+        Image(countries[number])
+            .clipShape(.capsule)
+            .shadow(radius: 5)
+    }
+    
+    func CustomTitle(text: String) -> some View {
+        Text(text)
+               .font(.largeTitle.weight(.bold))
+               .foregroundStyle(.white)
+    }
+    
+    func CustomBody(text: String) -> some View {
+        Text(text)
+            .foregroundColor(.white)
+            .font(.subheadline.weight(.heavy))
     }
 }
 
