@@ -17,11 +17,14 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
     
+    @State private var userScore = 0
+    
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
+                    Text("User Score \(userScore)")
                     TextField("Enter your word", text: $newWord)
                         .textInputAutocapitalization(.never)
                 }
@@ -34,10 +37,19 @@ struct ContentView: View {
                         }
                     }
                 }
+                
+                
             }
             .navigationTitle(rootWord)
             .onSubmit(addNewWord)
             .onAppear(perform: startGame)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: startGame) {
+                        Text("Start Over")
+                    }
+                }
+            }
         }
         .alert(errorTitle, isPresented: $showingError) { } message: {
             Text(errorMessage)
@@ -64,9 +76,15 @@ struct ContentView: View {
             return
         }
         
+        guard noShortAnswers(word: answer) else {
+            wordError(title: "Word is less than 3 characters.", message: "Please try a longer word")
+            return
+        }
+        
         
         withAnimation {
             usedWords.insert(answer, at: 0)
+            userScore += answer.count
         }
         newWord = ""
     }
@@ -83,6 +101,8 @@ struct ContentView: View {
                 rootWord = allWords.randomElement() ?? "silkworm"
                 
                 // if we are here everything has worked, so we can exit
+                userScore = 0
+                usedWords.removeAll()
                 return
             }
         }
@@ -115,6 +135,10 @@ struct ContentView: View {
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
 
         return misspelledRange.location == NSNotFound
+    }
+    
+    func noShortAnswers(word: String) -> Bool {
+        return !(word.count < 3)
     }
     
     func wordError(title: String, message: String) {
