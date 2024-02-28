@@ -18,6 +18,10 @@ struct ContentView: View {
     @State private var gameOver = false
     @State private var numberOfAttempts = 0
     
+    @State private var flagClicked = -1
+    @State private var rotationAngle: Double = 0.0
+
+
     var body: some View {
         
         ZStack {
@@ -39,10 +43,20 @@ struct ContentView: View {
                 ForEach(0..<3) { number in
                     Button {
                         flagTapped(number)
+                        withAnimation {
+                            rotationAngle += 360 // Increment rotation angle by 360 degrees
+                        }
                     
                     } label: {
                         FlagImage(number)
                     }
+                    .rotation3DEffect(.degrees(flagClicked == number ? rotationAngle : 0), axis: (x: 0, y:1, z:0))
+                    .animation(flagClicked == number ? .default : nil, value: flagClicked )
+                    .opacity((flagClicked == number || flagClicked == -1) ? 1 : 0.25)
+                    .animation(.default, value: flagClicked )
+
+                    
+                    
                     
                 }
                 CustomBody(text: "Current Score: \(userScore)")
@@ -73,6 +87,7 @@ struct ContentView: View {
     }
     
     func flagTapped(_ number: Int) {
+        flagClicked = number
         numberOfAttempts += 1
         if number == correctAnswer {
             scoreTitle = "Correct"
@@ -93,6 +108,7 @@ struct ContentView: View {
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        flagClicked = -1
     }
     
     func resetGame() {
