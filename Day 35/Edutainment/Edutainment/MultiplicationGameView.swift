@@ -14,6 +14,9 @@ struct MultiplicationGameView: View {
     @Binding var questionNumber: Int
     @Binding var numberOfQuestion: Int
     @Binding var difficulty: String
+    @State private var questionSet = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    @State private var timesNum = 1
+    @State private var correctAnswer = 1
     
     var body: some View {
         NavigationStack {
@@ -29,7 +32,7 @@ struct MultiplicationGameView: View {
                 Spacer()
                 
                 VStack {
-                    Text("\(multiplicationTable + 2) ✖️ \(2) 🟰")
+                    Text("\(multiplicationTable + 2) ✖️ \(timesNum) 🟰")
                         .font(.largeTitle)
                     Button {
                         print("Answer 1 selected")
@@ -58,11 +61,13 @@ struct MultiplicationGameView: View {
                 Spacer()
             }
             .navigationTitle("Multiply✖️")
+            .onAppear(perform: startGame)
         }
     }
     
-    func createQuestion() {
-        
+    func startGame() {
+        var index = Int.random(in: 0...20)
+        timesNum = questionSet[index]
     }
 }
 
