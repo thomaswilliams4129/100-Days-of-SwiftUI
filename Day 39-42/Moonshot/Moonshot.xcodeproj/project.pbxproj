@@ -11,6 +11,11 @@
 		825D42F92B95068A005BC582 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825D42F82B95068A005BC582 /* ContentView.swift */; };
 		825D42FB2B95068B005BC582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825D42FA2B95068B005BC582 /* Assets.xcassets */; };
 		825D42FE2B95068B005BC582 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825D42FD2B95068B005BC582 /* Preview Assets.xcassets */; };
+		82BE1C752B966D2D009CDC51 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 82BE1C732B966D2C009CDC51 /* missions.json */; };
+		82BE1C762B966D2D009CDC51 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 82BE1C742B966D2D009CDC51 /* astronauts.json */; };
+		82BE1C782B966DA8009CDC51 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BE1C772B966DA8009CDC51 /* Astronaut.swift */; };
+		82BE1C7A2B966E25009CDC51 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BE1C792B966E25009CDC51 /* Bundle-Decodable.swift */; };
+		82BE1C7C2B966FFC009CDC51 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BE1C7B2B966FFC009CDC51 /* Mission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		825D42F82B95068A005BC582 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		825D42FA2B95068B005BC582 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		825D42FD2B95068B005BC582 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		82BE1C732B966D2C009CDC51 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
+		82BE1C742B966D2D009CDC51 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
+		82BE1C772B966DA8009CDC51 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
+		82BE1C792B966E25009CDC51 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		82BE1C7B2B966FFC009CDC51 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,11 @@
 			children = (
 				825D42F62B95068A005BC582 /* MoonshotApp.swift */,
 				825D42F82B95068A005BC582 /* ContentView.swift */,
+				82BE1C772B966DA8009CDC51 /* Astronaut.swift */,
+				82BE1C7B2B966FFC009CDC51 /* Mission.swift */,
+				82BE1C792B966E25009CDC51 /* Bundle-Decodable.swift */,
+				82BE1C742B966D2D009CDC51 /* astronauts.json */,
+				82BE1C732B966D2C009CDC51 /* missions.json */,
 				825D42FA2B95068B005BC582 /* Assets.xcassets */,
 				825D42FC2B95068B005BC582 /* Preview Content */,
 			);
@@ -126,7 +141,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				825D42FE2B95068B005BC582 /* Preview Assets.xcassets in Resources */,
+				82BE1C752B966D2D009CDC51 /* missions.json in Resources */,
 				825D42FB2B95068B005BC582 /* Assets.xcassets in Resources */,
+				82BE1C762B966D2D009CDC51 /* astronauts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82BE1C7A2B966E25009CDC51 /* Bundle-Decodable.swift in Sources */,
+				82BE1C782B966DA8009CDC51 /* Astronaut.swift in Sources */,
 				825D42F92B95068A005BC582 /* ContentView.swift in Sources */,
+				82BE1C7C2B966FFC009CDC51 /* Mission.swift in Sources */,
 				825D42F72B95068A005BC582 /* MoonshotApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

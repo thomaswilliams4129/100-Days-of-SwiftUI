@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
+    let missions: [Mission] = Bundle.main.decode("missions.json")
+    
     var body: some View {
-        NavigationStack {
-            List(0..<100) { row in
-                NavigationLink("Row \(row)") {
-                    Text("Detail \(row)")
-                }
-            }
-            .navigationTitle("SwiftUI")
-        }
+        Text(String(astronauts.count))
+        Text(String(missions.count))
     }
 }
 
