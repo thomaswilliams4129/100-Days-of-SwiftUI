@@ -7,18 +7,25 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MoonshotView: View {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
-    let columns = [
+    var twoColumns = [
         GridItem(.adaptive(minimum: 150))
     ]
+    
+    var singleColumn = [
+        GridItem(.adaptive(minimum: 300))
+    ]
+
+    
+    @State var toggleView = false
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: toggleView ? singleColumn : twoColumns) {
                     ForEach(missions) { mission in
                         NavigationLink {
                             MissionView(mission: mission, astronauts: astronauts)
@@ -56,14 +63,17 @@ struct ContentView: View {
             .background(.darkBackgound)
             .preferredColorScheme(.dark)
             .toolbar {
-                Button("List") {
-                    
+                Button {
+                    toggleView.toggle()
+                } label: {
+                    Image(systemName: "switch.2")
                 }
+                .foregroundStyle(.gray)
             }
         }
     }
 }
 
 #Preview {
-    ContentView()
+    MoonshotView()
 }
