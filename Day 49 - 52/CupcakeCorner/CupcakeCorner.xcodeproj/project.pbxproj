@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		821311102BA60F0B0009D0B1 /* ShippingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8213110F2BA60F0B0009D0B1 /* ShippingAddress.swift */; };
 		8215C1692BA2716100468740 /* CupcakeCornerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8215C1682BA2716100468740 /* CupcakeCornerApp.swift */; };
 		8215C16B2BA2716100468740 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8215C16A2BA2716100468740 /* ContentView.swift */; };
 		8215C16D2BA2716200468740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8215C16C2BA2716200468740 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8213110F2BA60F0B0009D0B1 /* ShippingAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddress.swift; sourceTree = "<group>"; };
 		8215C1652BA2716100468740 /* CupcakeCorner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CupcakeCorner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8215C1682BA2716100468740 /* CupcakeCornerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupcakeCornerApp.swift; sourceTree = "<group>"; };
 		8215C16A2BA2716100468740 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			children = (
 				8215C1682BA2716100468740 /* CupcakeCornerApp.swift */,
 				8215C1762BA51F0700468740 /* Order.swift */,
+				8213110F2BA60F0B0009D0B1 /* ShippingAddress.swift */,
 				8215C16A2BA2716100468740 /* ContentView.swift */,
 				8215C17A2BA5238C00468740 /* CheckoutView.swift */,
 				8215C1782BA522E900468740 /* AddressView.swift */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				821311102BA60F0B0009D0B1 /* ShippingAddress.swift in Sources */,
 				8215C1772BA51F0700468740 /* Order.swift in Sources */,
 				8215C1792BA522E900468740 /* AddressView.swift in Sources */,
 				8215C17B2BA5238C00468740 /* CheckoutView.swift in Sources */,
