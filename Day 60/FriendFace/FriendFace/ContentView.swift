@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @State private var users = [User]()
+    @Environment(\.modelContext) var modelContext
+    @Query var users: [User]
     
     var body: some View {
         NavigationStack {
@@ -24,29 +26,32 @@ struct ContentView: View {
                     }
                 }
             }
-            .task {
-                await loadData()
-            }
             .navigationTitle("Users")
+            .task {
+                if users.count == 0 {
+                    await loadData()
+                }
+            }
         }
-        
-        
     }
     
     func loadData() async {
+        // Load and decode the JSON.
         guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
             print("Invalid URL")
             return
         }
-        
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            
-            if let decodeData = try? JSONDecoder().decode([User].self, from: data) {
-                users = decodeData
+            let users = try JSONDecoder().decode([User].self, from: data)
+
+            // Add all our data to the context.
+            for user in users {
+                modelContext.insert(user)
             }
+
         } catch {
-            print("Invalid data")
+            print("Failed to pre-seed database.")
         }
     }
 }
